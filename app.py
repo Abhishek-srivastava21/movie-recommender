@@ -7,7 +7,7 @@ st.set_page_config(page_title="Movie Recommender", page_icon="🎬")
 
 @st.cache_data
 def load():
-    df = pd.read_csv("data/movies_clean.csv").dropna().reset_index(drop=True)
+      df = pd.read_csv("movies_clean.csv").dropna().reset_index(drop=True)
     matrix = TfidfVectorizer(stop_words="english", max_features=5000).fit_transform(df["tags"])
     return df, matrix
 
